@@ -1,13 +1,19 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
 import Navbar from "./Navbar";
-import PostForm from "./PostForm";
+import NoteForm from "./NoteForm";
+import { useState } from "react";
+import { Note } from "./types/Note";
+import NoteGrid from "./NoteGrid";
 
 function App() {
+  const [notes, setNotes] = useState<Note[]>([]);
+
   return (
     <>
       <Navbar />
-      <PostForm />
+      <NoteGrid notes={notes} setNotes={setNotes} />
+      <NoteForm notes={notes} setNotes={setNotes} />
     </>
   );
 }
