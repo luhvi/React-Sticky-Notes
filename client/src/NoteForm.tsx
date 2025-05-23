@@ -38,10 +38,10 @@ const NoteForm = ({ setNotes }: NotesProps) => {
 
   return (
     <div
-      className={`${!isMinimized ? "fixed right-2 bottom-2 h-110 w-75 rounded-sm bg-white px-4 py-4 shadow-[0px_0px_8px_rgba(0,0,0,0.25)]" : "fixed right-12 bottom-12"}`}
+      className={`fixed bg-white transition-all duration-500 ease-in-out ${isMinimized ? "right-0 bottom-0 h-16 w-16" : "right-2 bottom-2 h-110 w-75 rounded-sm px-4 py-4 shadow-[0px_0px_8px_rgba(0,0,0,0.25)]"}`}
     >
       <button
-        className="absolute top-[-20px] left-[-20px] h-10 w-10 transform cursor-pointer rounded-full bg-[hsl(0,0%,25%)] text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] transition duration-200 hover:scale-110"
+        className="absolute top-[-20px] left-[-20px] h-10 w-10 transform cursor-pointer rounded-full bg-[hsl(0,0%,25%)] text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] duration-200 hover:scale-110"
         onClick={() => minimizeMaximize()}
       >
         {!isMinimized ? (
@@ -88,7 +88,7 @@ const NoteForm = ({ setNotes }: NotesProps) => {
               {textCharacters.length}/200
             </span>
           </div>
-          <button className="mt-6 cursor-pointer rounded-full bg-[hsl(0,0%,25%)] py-7 font-semibold text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] transition-colors duration-300 hover:bg-[hsl(0,0%,35%)]">
+          <button className="mt-6 cursor-pointer rounded-full bg-[hsl(0,0%,25%)] py-7 font-semibold text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] transition-colors duration-300 ease-in-out hover:bg-[hsl(0,0%,35%)]">
             _submit note.
           </button>
         </form>

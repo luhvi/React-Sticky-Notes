@@ -17,7 +17,7 @@ const NoteGrid = ({ notes, setNotes }: NotesProps) => {
           className="absolute right-2.5 bottom-0.5 cursor-pointer"
           onClick={() => deleteNote(index)}
         >
-          <i className="fa-solid fa-xmark text-xs transition-colors duration-300 hover:text-red-500"></i>
+          <i className="fa-solid fa-xmark text-xs transition-colors duration-300 ease-in-out hover:text-red-500"></i>
         </span>
       </div>
     );
