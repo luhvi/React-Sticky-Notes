@@ -23,26 +23,22 @@ const NoteForm = ({ setNotes }: NotesProps) => {
   const getTitleCharsTextColorClass = () => {
     if (titleCharacters.length <= 5) {
       return "text-green-500";
-    } else if (titleCharacters.length <= 10) {
-      return "text-yellow-500";
     } else {
-      return "text-red-500";
+      return "text-yellow-500";
     }
   };
 
   const getTextCharsTextColorClass = () => {
     if (textCharacters.length <= 150) {
       return "text-green-500";
-    } else if (textCharacters.length <= 200) {
-      return "text-yellow-500";
     } else {
-      return "text-red-500";
+      return "text-yellow-500";
     }
   };
 
   return (
     <div
-      className={`${!isMinimized ? "fixed right-2 bottom-2 h-100 w-75 rounded-sm bg-white px-4 py-4 shadow-[0px_0px_8px_rgba(0,0,0,0.25)]" : "fixed right-12 bottom-12"}`}
+      className={`${!isMinimized ? "fixed right-2 bottom-2 h-110 w-75 rounded-sm bg-white px-4 py-4 shadow-[0px_0px_8px_rgba(0,0,0,0.25)]" : "fixed right-12 bottom-12"}`}
     >
       <button
         className="absolute top-[-20px] left-[-20px] h-10 w-10 transform cursor-pointer rounded-full bg-[hsl(0,0%,25%)] text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] transition duration-200 hover:scale-110"
@@ -67,7 +63,8 @@ const NoteForm = ({ setNotes }: NotesProps) => {
               className="w-full rounded-sm px-2.5 py-2.5 text-sm shadow-[0px_0px_8px_rgba(0,0,0,0.25)] outline-none"
               type="text"
               placeholder="E.g. Buy Groceries"
-              {...register("title", { required: true, maxLength: 10 })}
+              maxLength={10}
+              {...register("title", { required: true })}
             />
             <span
               className={`absolute right-2 bottom-0.5 text-[0.5rem] font-medium ${getTitleCharsTextColorClass()}`}
@@ -82,7 +79,8 @@ const NoteForm = ({ setNotes }: NotesProps) => {
             <textarea
               className="h-35 w-full resize-none rounded-sm px-2.5 py-2.5 text-sm shadow-[0px_0px_8px_rgba(0,0,0,0.25)] outline-none"
               placeholder="E.g. List of Groceries"
-              {...register("text", { required: true, maxLength: 200 })}
+              maxLength={200}
+              {...register("text", { required: true })}
             ></textarea>
             <span
               className={`absolute right-2 bottom-2 text-[0.5rem] font-medium ${getTextCharsTextColorClass()}`}
@@ -90,7 +88,7 @@ const NoteForm = ({ setNotes }: NotesProps) => {
               {textCharacters.length}/200
             </span>
           </div>
-          <button className="mt-6 cursor-pointer rounded-full bg-[hsl(0,0%,25%)] py-4 font-semibold text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)]">
+          <button className="mt-6 cursor-pointer rounded-full bg-[hsl(0,0%,25%)] py-7 font-semibold text-white shadow-[0px_0px_8px_rgba(0,0,0,0.25)] transition-colors duration-300 hover:bg-[hsl(0,0%,35%)]">
             _submit note.
           </button>
         </form>
